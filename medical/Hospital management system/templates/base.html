@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+        body{
+          background-color: skyblue;
+        }
+        .navbar-nav li {
+            margin-right: 15px;
+            
+            /* Add margin between each navigation item */
+        }
+      
+        .navbar-nav li a {
+            color: white; /* Navigation link text color */
+            text-decoration: none; /* Remove underline from links */
+            padding: 5px 10px; /* Add padding around the navigation link */
+            border-radius: 5px; /* Add rounded corners to the navigation link */
+        }
+      
+        
+        button[type="submit"] {
+          /* Background and text color */
+          background-color: blue; /* Use your desired color */
+          color: white; /* White text on the button */
+        
+          /* Font and text styles */
+          font-family: Arial, sans-serif;
+          font-size: 16px;
+          font-weight: bold;
+          text-transform: uppercase;
+        
+          /* Padding and border */
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px; /* Rounded corners */
+        
+          /* Hover effect */
+          transition: background-color 0.2s ease-in-out;
+        }
+        
+        /* Hover effect when mouse over the button */
+        button[type="submit"]:hover {
+          background-color: #1c87c9; /* Darker color when hovering */
+          cursor: pointer; /* Change cursor to a hand when hovering */
+        }
+        /* CSS for the table and borders */
+        .appointment-table table {
+          width: 100%;
+          border-collapse: collapse; /* Merge cell borders */
+        }
+      
+        .appointment-table th, .appointment-table td {
+          border: 2px solid black; /* Border for each cell */
+          padding: 8px; /* Add padding to the cells for better spacing */
+          text-align: left; /* Align text to the left */
+        }
+      
+        .appointment-table th {
+          background-color: pink; /* Gray background for table headers */
+        }
+      
+        /* Optional: Add some styling to alternate rows for better readability */
+        .appointment-table tbody tr:nth-child(even) {
+          background-color: #f9f9f9; /* Alternate background color for even rows */
+        }
+        .appointment-table tbody tr:nth-child(odd) {
+          background-color: #9f9f9f; /* Alternate background color for even rows */
+        }
+        /* Style for the tab content container */
+        .tab-pane {
+          display: block;
+          padding: 20px;
+        }
+        
+        /* Style for the active tab content */
+        .tab-pane.active.show {
+          display: block;
+        }
+        
+        /* Style for the heading (h3) inside the tab content */
+        .tab-pane h3 {
+          font-size: 24px;
+          color: white;
+          background-color: #007bff;
+          color: #fff;
+          padding: 10px;
+          margin-bottom: 20px;
+          text-align:center;
+        }
+        
+        /* Style for the italic text (p.fst-italic) inside the tab content */
+        .tab-pane p.fst-italic {
+          font-style: italic;
+          color: blue;
+        }
+        
+        /* Style for the image inside the tab content */
+        .tab-pane img {
+          max-width: 100%;
+          height: auto;
+          margin-top: 20px;
+        }
+        
+        .tab-pane{
+          background-color:pink;
+        }
+      
+        /* styles.css */
+        footer {
+          background-color: #333; /* Change to the color of your choice */
+          color: white; /* Change to the color of your choice */
+          padding: 100px 0;
+          text-align: center;
+        }
+        
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+
+        /*css for login, logout, and Register..*/
+
+        .login-btn,
+        .logout-btn {
+            background-color: blue;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 15px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .login-btn:hover,
+        .logout-btn:hover {
+            background-color: #1c87c9;
+        }
+      </style>
+    <title>Hospital Managenment System</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-white bg-dark">
+        <div class="container-fluid">
+          {% load static %}
+          <img src="{% static 'F:\Punit\punit\medical\Hello\static\img\dlogo.jpg' %}" style="margin-right: 10px;" alt="Logo" height="30">
+          <a class="navbar-brand" style="color:orange;">Hospital</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/services">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/department">Department</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/doctors">Doctors</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/staff">Staff</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/visitor_information">Visitors Information</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/facility_list">Locations</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact Us</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav">
+              
+              {% if user.is_authenticated %}
+              
+                {% if user.is_superuser %}
+                <button type="submit" style="padding: 5px 15px; margin: 0 5px;">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/view_inquiries">View Inquiries</a>
+                  </li>
+                </button>
+                {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="/appointment">Make an appointment</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/appointments">Show appointment</a>
+                </li>
+                
+                <button type="submit" style="padding: 5px 15px; margin: 0 5px;">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/patient_inquiry">Patient_inquiry</a>
+                  </li>
+                </button>
+                <button type="submit">
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'inquiry_status' %}">Inquiry Status</a>
+                  </li>
+                </button>
+                {% endif %}
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Welcome {{ request.user }}
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background-color: gray;">
+                          <li><a class="dropdown-item logout-btn" href="/logout">Logout</a></li>
+                      </ul>
+                  </li>
+              {% else %}
+                  <li class="nav-item" style="background-color: blue; color: white;font-weight: bold; border: none;border-radius: 5px;padding: 5px 15px; margin: 0 5px;cursor: pointer;">
+                      <a class="nav-link login-btn" href="/login">Login</a>
+                  </li>
+                  <li class="nav-item" style="background-color: blue; color: white;font-weight: bold; border: none;border-radius: 5px;padding: 5px 15px; margin: 0 5px;cursor: pointer;">
+                      <a class="nav-link login-btn" href="/register">Register</a>
+                  </li>
+              {% endif %}
+          </ul>
+          
+          </div>
+        </div>
+      </nav>
+      <!-- Navbar or any suitable location in your template -->
+    
+
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0 " role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endfor %}
+      {% endif %}    <!-- Optional JavaScript; choose one of the two! -->
+      {% block body %}{% endblock body %}
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+   
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+   
+    <footer style="background-color: #333; color: white; padding: 20px 0;margin:10px 0; text-align: center; ">
+      <div class="container" style="">
+        <p>&copy; 2023 Hospital Managenment System. All rights reserved.</p>
+        <p>Contact: 9624561580</p>
+        <div>
+          <a href="https://instagram.com/punit.4706?igshid=MzNlNGNkZWQ4Mg==" target="_blank">
+            {% load static %} 
+              <img src="{% static 'F:\Punit\punit\medical\Hello\static\img\inst.jpg' %}" alt="Instagram" width="30" height="30">
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=100076895949246&mibextid=ZbWKwL" target="_blank">
+            {% load static %} 
+              <img src="{% static 'F:\Punit\punit\medical\Hello\static\img\fb.png' %}" alt="Facebook" width="30" height="30">
+          </a>
+      </div>
+        <!-- Add any other footer content or links you want -->
+      </div>
+    </footer>
+    
+  </body>
+</html> 

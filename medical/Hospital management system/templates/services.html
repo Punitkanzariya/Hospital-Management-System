@@ -1,0 +1,296 @@
+{% extends 'base.html' %}
+
+{% block title %}services{% endblock title %}
+
+{% block body %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.5.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.5.0/js/bootstrap.min.js"></script>
+    <style>
+        /* Style the Services section */
+        .services-section {
+           padding: 40px 0;
+           background-color: skyblue;
+           color: #333;
+       }
+       .services-section h2 {
+           margin-bottom: 20px;
+       }
+       
+       .service {
+           margin-bottom: 30px;
+       }
+       
+       
+       .service h3 {
+           color: #007bff;
+           margin-bottom: 10px;
+       }
+       
+       .service p {
+           font-size: 16px;
+           line-height: 1.6;
+       }
+       .service img {
+           transition: transform 0.3s ease; /* Add a smooth transition effect */
+       }
+       
+       .service img:hover {
+           transform: scale(1.1); /* Increase the size of the image by 10% on hover */
+       }
+       
+       
+       /* Carousel Styles */
+       .carousel {
+           position: relative;
+       }
+       
+       .carousel-inner {
+           position: relative;
+           width: 100%;
+           overflow: hidden;
+           font-weight: bold;
+           background-color: pink;
+       }
+       
+       .carousel-item {
+           position: relative;
+           display: none;
+       }
+       
+       .carousel-item.active {
+           display: block;
+       }
+       
+       .carousel-control-prev,
+       .carousel-control-next {
+           position: absolute;
+           top: 50%;
+           transform: translateY(-50%);
+           font-size: 2rem;
+           z-index: 10;
+           cursor: pointer;
+       }
+       
+       .carousel-control-prev {
+           left: 0;
+       }
+       
+       .carousel-control-next {
+           right: 0;
+       }
+       
+       .carousel-control-prev-icon,
+       .carousel-control-next-icon {
+           width: 30px;
+           height: 30px;
+       }
+       
+       .carousel-indicators {
+           display: flex;
+           justify-content: center;
+           margin-top: 20px;
+       }
+       
+       .carousel-indicators li {
+           list-style: none;
+           display: inline-block;
+           width: 10px;
+           height: 10px;
+           background-color: #888;
+           border-radius: 50%;
+           cursor: pointer;
+           margin: 0 5px;
+           transition: background-color 0.3s ease;
+       }
+       
+       .carousel-indicators li.active {
+           background-color: #007bff;
+       }
+       
+       /* Optional: To make the carousel images responsive */
+       .carousel-item img {
+           width: auto;
+           height: auto;
+       }
+       
+       /* Optional: To center the carousel captions */
+       .carousel-item .service {
+           text-align: center;
+       }
+       
+       
+    </style>
+</head>
+<body>
+    <!-- Your header section -->
+    <!-- Include the navigation bar, logo, and other elements here -->
+    <center>
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <div class="section-title" style=" background-color: #007bff;color: #fff;padding: 10px;margin-bottom: 20px;">
+                    <center><h2 style="color:white;">Our Services</h2></center>
+            </div>
+            <!-- Services Carousel -->
+            <div id="servicesCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+
+            <!-- Emergency Medical Services (EMS) -->
+            <div class="carousel-item active">
+            <div class="service"> 
+                <h3>Emergency Medical Services (EMS)</h3>
+                <p>Immediate medical attention and care for critical conditions and emergencies.</p>
+                {% load static %} 
+                <img src="{% static 'F:\Punit\punit\medical\Hello\static\img\ems.jpg' %}" alt="My image">
+            </div>
+        </div>
+            <!-- Inpatient Services --><div class="carousel-item">
+            <div class="service">
+                <h3>Inpatient Services</h3>
+                <p>Medical care for patients who require hospitalization, including specialized units like intensive care, cardiac care, and maternity wards.</p>
+                {% load static %} 
+                <img src="{% static 'F:\Punit\punit\medical\Hello\static\img\s1.jpg' %}" alt="My image">
+            </div>
+            </div>
+
+            <!-- Outpatient Services -->
+        <div class="carousel-item">
+            <div class="service">
+                <h3>Outpatient Services</h3>
+                <p>Medical care for patients who do not require hospitalization, including consultations, diagnostic tests, and minor procedures.</p>
+                {% load static %} 
+                <img src="{% static 'F:\Punit\punit\medical\Hello\static\img\s2.jpg' %}" alt="My image">
+            </div>        
+        </div>
+
+            <!-- Surgery -->
+            <div class="carousel-item">
+            <div class="service">
+                <h3>Surgery</h3>
+                <p>Various surgical procedures, including general surgery, orthopedic surgery, neurosurgery, etc.</p>
+                {% load static %} 
+                <img src="{% static 'F:\Punit\punit\medical\Hello\static\img\s3.jpg' %}" alt="My image">
+            </div>    
+            </div>
+
+            <!-- Radiology and Imaging --><div class="carousel-item">
+            <div class="service">
+                <h3>Radiology and Imaging</h3>
+                <p>X-rays, CT scans, MRIs, ultrasounds, and other diagnostic imaging services.</p>
+                {% load static %} 
+                <img src="{% static 'F:\Punit\punit\medical\Hello\static\img\s4.jpg' %}" alt="My image">
+            </div>  
+            </div>
+
+            <!-- Laboratory Services --><div class="carousel-item">
+            <div class="service">
+                <h3>Laboratory Services</h3>
+                <p>Blood tests, urine tests, and other diagnostic tests to aid in diagnosis and treatment.</p>
+                {% load static %} 
+                <img src="{% static 'F:\Punit\punit\medical\Hello\static\img\s5.jpg' %}" alt="My image">
+            </div>
+            </div>
+
+            <!-- Obstetrics and Gynecology --><div class="carousel-item">
+            <div class="service">
+                <h3>Obstetrics and Gynecology</h3>
+                <p>Maternity care, prenatal and postnatal care, and women's health services.</p>
+                {% load static %} 
+                <img src="{% static 'F:\Punit\punit\medical\Hello\static\img\s6.jpg' %}" alt="My image">
+            </div>
+            </div>
+
+            <!-- Pediatrics --><div class="carousel-item">
+            <div class="service">
+                <h3>Pediatrics</h3>
+                <p>Medical care for infants, children, and adolescents.</p>
+                {% load static %} 
+                <img src="{% static 'F:\Punit\punit\medical\Hello\static\img\s7.jpg' %}" alt="My image">
+            </div>
+            </div>
+
+            <!-- Internal Medicine --><div class="carousel-item">
+            <div class="service">
+                <h3>Internal Medicine</h3>
+                <p>Medical care for adults, including diagnosis and treatment of various medical conditions.</p>
+                {% load static %} 
+                <img src="{% static 'F:\Punit\punit\medical\Hello\static\img\s8.jpg' %}" alt="My image">
+            </div>
+            </div>
+
+            <!-- Cardiology --><div class="carousel-item">
+            <div class="service">
+                <h3>Cardiology</h3>
+                <p>Diagnosis and treatment of heart-related conditions and diseases.</p>
+                {% load static %} 
+                <img src="{% static 'F:\Punit\punit\medical\Hello\static\img\s9.jpg' %}" alt="My image">
+            </div>
+            </div>
+
+            <!-- Oncology --><div class="carousel-item">
+            <div class="service">
+                <h3>Oncology</h3>
+                <p>Diagnosis and treatment of cancer and related services like chemotherapy and radiation therapy.</p>
+                {% load static %} 
+                <img src="{% static 'F:\Punit\punit\medical\Hello\static\img\s10.jpg' %}" alt="My image">
+            </div>
+            </div>
+
+            <!-- Neurology --><div class="carousel-item">
+            <div class="service">
+                <h3>Neurology</h3>
+                <p>Diagnosis and treatment of neurological disorders and conditions.</p>
+                {% load static %} 
+                <img src="{% static 'F:\Punit\punit\medical\Hello\static\img\s11.jpg' %}" alt="My image">
+            </div>
+            </div>
+
+            <!-- Physical Therapy and Rehabilitation --><div class="carousel-item">
+            <div class="service">
+                <h3>Physical Therapy and Rehabilitation</h3>
+                <p>Rehabilitation services for patients recovering from injuries or surgeries.</p>
+                {% load static %} 
+                <img src="{% static 'F:\Punit\punit\medical\Hello\static\img\s12.jpg' %}" alt="My image">
+            </div>
+            </div>
+
+            <!-- Psychiatry and Behavioral Health --><div class="carousel-item">
+            <div class="service">
+                <h3>Psychiatry and Behavioral Health</h3>
+                <p>Mental health services for individuals experiencing psychological issues.</p>
+                {% load static %} 
+                <img src="{% static 'F:\Punit\punit\medical\Hello\static\img\s13.jpg' %}" alt="My image">
+            </div>   
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#servicesCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#servicesCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+    <script>
+        // JavaScript code to automatically advance the carousel after 5 seconds
+        var myCarousel = document.getElementById('servicesCarousel');
+        var carousel = new bootstrap.Carousel(myCarousel, {
+            interval: 2000 // 5 seconds in milliseconds
+        });
+    </script>
+</div>
+</div>
+    </section>
+
+</body>
+</html>
+
+{% endblock body %}

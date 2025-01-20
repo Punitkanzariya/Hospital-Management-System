@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}View Inquiry{% endblock title %}
+
+{% block body %}
+<div class="container">
+    <div class="section-title" style="background-color: #007bff; color: #fff; padding: 10px; margin-bottom: 20px;">
+        <center><h2 style="color: white;">Patient Inquiries</h2></center>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Unread Inquiries</h3>
+            <table class="appointment-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Full Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Timestamp</th>
+                        <th scope="col">For Mark As Read</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for inquiry in unread_inquiries %}
+                    <tr>
+                        <td>{{ inquiry.full_name }}</td>
+                        <td>{{ inquiry.email }}</td>
+                        <td>{{ inquiry.timestamp }}</td>
+                        <td><a href="{% url 'mark_read' inquiry.pk %}" class="btn btn-sm btn-success">Mark as Read</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="col-md-6">
+            <h3>Read Inquiries</h3>
+            <table class="appointment-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Full Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for inquiry in read_inquiries %}
+                    <tr>
+                        <td>{{ inquiry.full_name }}</td>
+                        <td>{{ inquiry.email }}</td>
+                        <td>{{ inquiry.timestamp }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

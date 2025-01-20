@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}services{% endblock title %}
+
+{% block body %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Facilities List</title>
+</head>
+<body>
+    <h1 style="text-align: center;background-color: #007bff;color: #fff;padding: 10px;margin-bottom: 20px;">Facilities List</h1>
+    <ul style="list-style-type: none; padding: 0; margin: 0;">
+        {% for facility in facilities %}
+            <li style="margin-bottom: 10px; background-color: pink; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+                <a href="{% url 'location_list' facility.id %}"
+                   style="text-decoration: none; color: #blue; font-weight: bold;">
+                    {{ facility.name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+{% endblock body %}

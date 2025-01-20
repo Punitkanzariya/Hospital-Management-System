@@ -1,0 +1,83 @@
+<!-- appointment_template.html -->
+{% extends 'base.html' %}
+{% block title %}appoinment{% endblock title %}
+{% block body %}
+<section id="appointment" class="appointment section-bg">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title" style=" background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 20px;">
+      <center><h2> {% load static %}
+        <img src="{% static 'F:\Punit\punit\medical\Hello\static\img\show1.png' %}" style="margin-right: 10px;" alt="Logo" height="30">
+       Appointments</h2></center>
+    </div>
+
+    <form action="{% url 'display_appointments_by_mobile' %}" method="post" style=" border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: orange;">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="phone">Enter Mobile Number:</label>
+        <input type="tel" class="form-control" name="phone" id="phone" required>
+      </div><br>
+      <div class="form-group">
+        <button type="submit">Search Appointments</button>
+      </div>
+    </form>
+    <br>
+    {% if appointments %}
+      <div class="appointment-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Date</th>
+              <th>Department</th>
+              <th>Doctor</th>
+              <th>Message</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for appointment in appointments %}
+              <tr>
+                <td>{{ appointment.name }}</td>
+                <td>{{ appointment.email }}</td>
+                <td>{{ appointment.phone }}</td>
+                <td>{{ appointment.date }}</td>
+                <td>{{ appointment.department }}</td>
+                <td>{{ appointment.doctor }}</td>
+                <td>{{ appointment.message }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <br>
+      {% else %}
+      <p>No appointments found for the entered mobile number.</p>
+    {% endif %}
+
+  </div>
+</section>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      const phoneInput = document.getElementById("phone");
+      
+      phoneInput.addEventListener("input", function() {
+          const phone = phoneInput.value;
+          
+          if (phone.trim() === "") {
+              // Clear the field if it's empty
+              phoneInput.value = "";
+          } else if (!phone.startsWith("+91")) {
+              // Add +91 if it's not already present
+              phoneInput.value = "+91" + phone;
+          }
+      });
+  });
+</script>
+{% endblock body %}

@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block title %}appoinment{% endblock title %}
+
+{% block body %} 
+
+<section id="appointment" class="appointment section-bg" >
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title" style=" background-color: #007bff;
+        color: #fff;
+        padding: 10px;
+        margin-bottom: 20px;">
+          <center><h2>
+            {% load static %}
+            <img src="{% static 'F:\Punit\punit\medical\Hello\static\img\apo.png' %}" style="margin-right: 10px;" alt="Logo" height="30">
+            Make an Appointment</h2></center>
+        </div>
+
+        <form style=" border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: orange;" action="/appointment" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-md-4 form-group">
+            <b>Name:</b><input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+            </div>
+            <div class="col-md-4 form-group mt-3 mt-md-0">
+              <b>Email:</b><input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+            </div>
+            <div class="col-md-4 form-group mt-3 mt-md-0">
+              <b>Phone:</b><input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone" required>
+          </div>
+          
+                        
+          <div class="row">
+            <div class="col-md-4 form-group mt-3">
+              <b>Date:</b><input type="date" name="date" class="form-control datepicker" id="date" required>
+            </div>
+            <div class="col-md-4 form-group mt-3">
+              <b>Department:</b><select name="department" id="department" class="form-select" required>
+                <option value="">Select Department</option>
+                <option >Cardiology</option>
+                <option >Neurology</option>
+                <option >Hepatology</option>
+                <option >Pediatrics</option>
+              </select>
+            </div>
+            <div class="col-md-4 form-group mt-3">
+              <b>Doctor:</b><select name="doctor" id="doctor" class="form-select" required>
+                <option value="">Select Doctor</option>
+                <option>Dr. S B Patel</option>
+                <option>Dr. Punit Kanzariya</option>
+                <option>Dr. V B Patel</option>
+                <option>Dr. A Varma</option>
+                <option>DR. P L shah</option>
+            </select>
+            </div>
+          </div>
+
+          <div class="form-group mt-3">
+            <b>Message:</b><textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)" required></textarea>
+          </div><br>
+          <div class="text-center" style="padding:10px;"><button type="submit">Make an Appointment</button></div>
+        </form>
+        <br>
+      </div>
+      
+    </section>
+    
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          const phoneInput = document.getElementById("phone");
+          
+          phoneInput.addEventListener("input", function() {
+              const phoneNumber = phoneInput.value;
+              
+              if (phoneNumber.trim() === "") {
+                  // Clear the field if it's empty
+                  phoneInput.value = "";
+              } else if (!phoneNumber.startsWith("+91")) {
+                  // Add +91 if it's not already present
+                  phoneInput.value = "+91" + phoneNumber;
+              }
+          });
+      });
+  </script>
+  
+    {% endblock body %}

@@ -1,0 +1,24 @@
+<!-- hospital_app/templates/visitor_information.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}Visitors Informations{% endblock title %}
+
+{% block body %} 
+<div class="section-title" style=" background-color: #007bff;
+color: #fff;
+padding: 10px;
+margin-bottom: 20px;">
+ <center>
+    <h1>Visitor Information</h1></center>
+</div>
+<div style="font-weight:bold;">
+  <p>Welcome to our hospital! Here is some important information for our visitors:</p>
+  <ul>
+    <li>Visiting Hours: Monday to Friday, 10:00 AM - 8:00 PM</li>
+    <li>Weekend Visiting Hours: Saturday and Sunday, 11:00 AM - 6:00 PM</li>
+    <li>Children under 12 must be accompanied by an adult at all times.</li>
+    <li>Please check in at the front desk upon arrival.</li>
+  </ul>
+</div>
+{% endblock body %}

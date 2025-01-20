@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}about{% endblock title %}
+{% block body %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctor List</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: skyblue; margin: 0;padding: 0;">
+    <div class="section-title" style="background-color: #007bff; color: #fff; padding: 10px; margin-bottom: 20px;">
+        <center>
+        <h1>Doctor List</h1>
+    </div>
+    <center>
+    <table class="appointment-table" style="margin:30px;">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Specialization</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for doctor in doctors %}
+            <tr>
+                <td>{{ doctor.name }}</td>
+                <td>{{ doctor.specialization }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+{% endblock body %}

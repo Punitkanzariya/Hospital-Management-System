@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}Patient Inquiry{% endblock title %}
+{% block body %}
+<!-- patient_inquiry.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Your head content here -->
+</head>
+<body>
+    <!-- Your navigation bar and other content here -->
+
+    <div class="container">
+        <div class="section-title" style=" background-color: #007bff;color: #fff;padding: 10px;margin-bottom: 20px;">
+            <center><h2 style="color:white;">Patient Inquiry</h2></center>
+        </div>
+        <form method="post" style=" border: 1px solid #ccc; padding: 20px; border-radius: 5px; background-color: orange;">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="full_name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="full_name" name="full_name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <p><b>NOTE: please enter valid email to check status if email is not match with your login email then you will not show your enquiry status..</b></p>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="inquiry" class="form-label">Inquiry</label>
+                <textarea class="form-control" id="inquiry" name="inquiry" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Inquiry</button>
+        </form>
+        
+    </div>
+
+    <!-- Your footer and script includes here -->
+</body>
+</html>
+{% endblock body %}

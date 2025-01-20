@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}doctors{% endblock title %}
+
+{% block body %}
+<section id="departments" class="departments">
+    <div class="container-fluid" data-aos="fade-up">
+
+      <div class="section-title">
+        <div class="section-title" style=" background-color: #007bff;
+        color: #fff;
+        padding: 10px;
+        margin-bottom: 20px;">
+          <center><h2>Departments</h2></center>
+        </div>
+      </div>
+
+      <div class="row" data-aos="fade-up" data-aos-delay="100" style="font-weight: bold;">
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <ul class="nav nav-tabs flex-column">
+            <li class="nav-items">
+              <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#tab-1">
+                <h4>Cardiology</h4>
+              </a>
+            </li>
+            <li class="nav-items mt-2">
+              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-2">
+                <h4>Neurology</h4>
+              </a>
+            </li>
+            <li class="nav-items mt-2">
+              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-3">
+                <h4>Hepatology</h4>
+              </a>
+            </li>
+            <li class="nav-items mt-2">
+              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-4">
+                <h4>Pediatrics</h4>
+              </a>
+            </li>
+          </ul>
+        </div>
+        {% load static %} 
+        <div class="col-lg-8">
+          <div class="tab-content">
+            <div class="tab-pane active show" id="tab-1">
+              <h3>Cardiology</h3>
+              <p class="fst-italic">Cardiology is the study of the heart. Cardiology is a branch of medicine that deals with disorders of the heart and the cardiovascular system.</p>
+              <img src="{% static 'F:\Punit\punit\medical\Hello\static\img\dp1.jpg' %}" alt="" class="img-fluid">
+            </div>
+            <div class="tab-pane" id="tab-2">
+              <h3>Neurology</h3>
+              <p class="fst-italic">Neurology is a branch of medical science that is concerned with disorders and diseases of the nervous system. The term neurology comes from a combination of two words - "neuron" meaning nerve and "logia" meaning "the study of".</p>
+              <img src="{% static 'F:\Punit\punit\medical\Hello\static\img\dp2.jpg' %}" alt="" class="img-fluid">
+            </div>
+            <div class="tab-pane" id="tab-3">
+              <h3>Hepatology</h3>
+              <p class="fst-italic">Hepatology is a branch of medicine concerned with the study, prevention, diagnosis, and management of diseases that affect the liver, gallbladder, biliary tree, and pancreas.</p>
+              <img src="{% static 'F:\Punit\punit\medical\Hello\static\img\dp3.jpg' %}" alt="" class="img-fluid">
+            </div>
+            <div class="tab-pane" id="tab-4">
+              <h3>Pediatrics</h3>
+              <p class="fst-italic">Pediatrics is the branch of medicine dealing with the health and medical care of infants, children, and adolescents from birth up to the age of 18. The word “paediatrics” means “healer of children”; they are derived from two Greek words: (pais = child) and (iatros = doctor or healer).</p>
+              <img src="{% static 'F:\Punit\punit\medical\Hello\static\img\dp4.jpg' %}" alt="" class="img-fluid">
+              </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+{% endblock body %}

@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block title %}about{% endblock title %}
+
+{% block body %}
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <style>
+        /* Your CSS styles for the About page go here */
+        body{
+        background-color:pink;
+    }
+    /* Style the About section */
+    .about-section {
+        padding: 40px 0;
+        color: #333;
+    }
+    
+    .about-section h2 {
+        color: red;
+        margin-bottom: 20px;
+    }
+    
+    .about-section p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: blue;
+    }
+    @keyframes slideInFromLeft {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+    
+    .animate-image { 
+        display: flex; /* Added to align images horizontally */
+        padding: 10px 0;
+        margin-right: 20px; /* Add margin between the images */
+        animation: slideInFromLeft 5s ease infinite;
+    }
+    
+    .animate-image img {
+        margin-right: 20px; /* Adjust the margin between images as needed */
+    }
+   </style>
+</head>
+<body>
+    <!-- Your header section -->
+    <!-- Include the navigation bar, logo, and other elements here -->
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-title" style=" background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            margin-bottom: 20px;">
+              <center><h2 style="color:white;">About us</h2></center>
+            </div>
+            <p>
+                Welcome to Hospital Management System , a leading healthcare management company dedicated to providing comprehensive solutions for healthcare facilities. 
+                We aim to optimize healthcare operations, enhance patient care, and streamline administrative processes.
+            </p>
+            <p>
+                At Medical Management, we understand the challenges faced by healthcare providers in today's dynamic and complex healthcare landscape. 
+                Our team of experienced professionals is committed to helping healthcare facilities succeed by offering tailored solutions and personalized support.
+            </p>
+            <p>
+                Our services include medical billing and coding, revenue cycle management, practice management, electronic health record (EHR) implementation, 
+                and regulatory compliance consulting. With our expertise and innovative solutions, we strive to empower healthcare providers to focus on what matters most - patient care.
+            </p>
+            <p>
+                At Medical Management, we prioritize integrity, transparency, and excellence in everything we do. We value the trust our clients place in us and work diligently to exceed their expectations.
+            </p>
+            <p>
+                Thank you for considering Medical Management as your healthcare management partner. We look forward to collaborating with you to achieve success and deliver exceptional healthcare services.
+            </p>
+            <div class="container animate-image">
+                {% load static %} 
+                <img src="{% static 'F:\Punit\punit\medical\Hello\static\img\about.jpg' %}" alt="My image">
+            </div>
+        </div>
+        
+    </section>
+     
+    
+    <!-- Your footer section -->
+    <!-- Include the footer content, contact information, and social media links here -->
+
+    <!-- Optional JavaScript and other scripts -->
+</body>
+</html>
+
+{% endblock body %}

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<html>
+  <head>
+<style media="screen">
+      .login-form {
+        width: 400px;
+        background-color: rgba(0, 0, 0, 0.8); /* Adjust the alpha value for the desired transparency */
+        margin: auto;
+        margin-top: 10px;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 40px rgba(8, 7, 16, 10);
+    }
+
+    .login-form h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-size: 16px;
+        font-weight: 500;
+        color:white;
+    }
+
+    input {
+        width: 100%;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.07);
+        border-radius: 3px;
+        padding: 0 10px;
+        font-size: 14px;
+    }
+
+    button {
+        width: 100%;
+        background-color: #ffffff;
+        color: #080710;
+        padding: 15px 0;
+        font-size: 18px;
+        font-weight: 600;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+</style>
+</head>
+<body>
+<div style="background-color: #007bff;color: #fff;padding: 10px;margin-bottom: 20px; text-align:center;">
+    <h2>Login</h2>
+</div>
+<form method="post" class="login-form">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" placeholder="Enter your username" required>
+    </div>
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" placeholder="Enter your password" required>
+    </div>
+    <button type="submit">Login</button>
+</form>
+</body>
+</html>
+{% endblock %}

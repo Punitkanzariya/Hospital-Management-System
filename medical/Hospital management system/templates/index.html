@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% block title %}about{% endblock title %}
+{% block body %}
+
+{% load static %}
+<!-- home/templates/home/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+            
+            /* Add custom styles for the home page here */
+            body {
+                background-color: skyblue;
+            }
+
+            .jumbotron {
+                background-color: #007bff;
+                color: #fff;
+            }
+
+            .services-section {
+                padding: 50px 0;
+                background-color: #fff;
+            }
+
+            .services-section h2 {
+                color: #007bff;
+            }
+            @keyframes slideInFromLeft {
+                0% {
+                    transform: translateX(-100%);
+                }
+                100% {
+                    transform: translateX(0);
+                }
+            }
+
+            .animate-image { 
+                display: flex; /* Added to align images horizontally */
+                padding: 10px 0;
+                margin-right: 20px; /* Add margin between the images */
+                animation: slideInFromLeft 2s ease infinite;
+            }
+
+            .animate-image img {
+                margin-right: 20px; /* Adjust the margin between images as needed */
+            }
+            /* Your CSS styles go here */
+
+            /* Style the services section */
+            .services-section {
+                padding: 50px 0;
+                background-color: #fff;
+            }
+
+            .services-section h2 {
+                color: #007bff;
+            }
+
+            /* Style individual service divs */
+            .service {
+                margin-bottom: 30px;
+                text-align: center;
+            }
+
+            .service img {
+                max-width: 200px;
+                display: block;
+                margin: 0 auto 10px;
+            }
+
+            .service h3 {
+                color: #007bff;
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+
+            .service p {
+                font-size: 16px;
+                line-height: 1.5;
+                color: #333;
+            }
+            button[type="about"] {
+                /* Background and text color */
+                background-color: blue; /* Use your desired color */
+                color: white; /* White text on the button */
+              
+                /* Font and text styles */
+                font-family: Arial, sans-serif;
+                font-size: 16px;
+                font-weight: bold;
+                text-transform: uppercase;
+              
+                /* Padding and border */
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px; /* Rounded corners */
+              
+                /* Hover effect */
+                transition: background-color 0.2s ease-in-out;
+              }
+              
+              /* Hover effect when mouse over the button */
+              button[type="about"]:hover {
+                background-color: blue; /* Darker color when hovering */
+                cursor: pointer; /* Change cursor to a hand when hovering */
+              }
+            
+    </style>
+</head>
+<body>
+    <center>
+        <div class="jumbotron text-center">
+            <h1>Welcome to our Hospital Managenment System Website</h1>
+            <p>Providing quality healthcare services.</p>
+        </div>
+
+        <div class="container services-section">
+            <h2>Hospital Managenment System welcome's you!!</h2>
+            <p>Thank you for visit our site!!</p>
+            <button type="about"><a href="/about" class="btn-get-started scrollto" style="color: white;">Read More</a></button>
+            <!-- Add service descriptions and information here -->
+            
+        </div>
+        </center>
+    <div class="container animate-image">
+        {% load static %} 
+        <img src="{% static 'F:\Punit\punit\medical\Hello\static\img\1.jpg' %}" alt="My image">
+        {% load static %} 
+        <img src="{% static 'F:\Punit\punit\medical\Hello\static\img\2.jpg' %}" alt="My image">
+        {% load static %} 
+        <img src="{% static 'F:\Punit\punit\medical\Hello\static\img\3.jpg' %}" alt="My image">
+    </div>
+    <!-- Add more sections and content as needed -->
+
+    <!-- Optional JavaScript; choose one of the two! -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+{% endblock body %}

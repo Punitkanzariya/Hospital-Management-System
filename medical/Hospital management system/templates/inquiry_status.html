@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Inquiry Status{% endblock title %}
+{% block body %}
+<div class="container">
+    <div class="section-title" style="background-color: #007bff; color: #fff; padding: 10px; margin-bottom: 20px;">
+        <center><h2 style="color: white;">Inquiry Status</h2></center>
+    </div>
+    
+    <div>
+        <h3>Your Inquiry Status</h3>
+        {% if user_inquiries %}
+        <table class="appointment-table">
+            <thead>
+                <tr>
+                    <th scope="col">Inquiry</th>
+                    <th scope="col">Timestamp</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for inquiry in user_inquiries %}
+                <tr style="color:black; font-weight: bold;">
+                    <td>{{ inquiry.inquiry }}</td>
+                    <td>{{ inquiry.timestamp }}</td>
+                    <td>
+                        {% if inquiry.is_read %}
+                            <span class="read">Read</span>
+                        {% else %}
+                            <span class="Unread">Unread</span>
+                        {% endif %}
+                    </td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No inquiries found for the provided name.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock body %}
